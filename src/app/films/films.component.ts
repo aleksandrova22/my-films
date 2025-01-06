@@ -57,14 +57,13 @@ export class FilmsComponent {
           this.doneModal = true;
         }, error: error => console.log(error)
       });
-
     console.log('movieId', movieId);
-    console.log('done1', this.doneModal);
+  
   }
 
   public ngClosePoster() {
     this.doneModal = false;
-    this.out.emit(this.doneModal);
+    //this.out.emit(this.doneModal);
   }
 
 }

@@ -20,7 +20,7 @@ export class JsonplaceholderService {
   constructor(private http: HttpClient) { }
  
   getPoster(movieId: string) {
-    return this.http.get<MovieFull>('http://omdbapi.com/?apikey=f7517aad&i=' + movieId + '&plot=full');
+    return this.http.get<MovieFull[]>('http://omdbapi.com/?apikey=f7517aad&i=' + movieId + '&plot=full');
     
   }
 }
