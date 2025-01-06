@@ -1,0 +1,35 @@
+<div id="search">
+
+    <label>Input</label><br>
+    <input type="text" placeholder="Enter movie title" [(ngModel)]="text" />
+    <button (click)="ngOnInit(text)">Search</button>
+</div>
+
+@if (done) {
+    <div id="result">
+@for (m of movies;track m.imdbID){
+<fieldset>
+    <img src="{{m?.Poster}}" alt="" (click)="ngGetPoster(m.imdbID)">
+    @if (doneModal ){
+
+    <div id="modal" (click)="ngClosePoster()">
+
+        <h3>Full info</h3>
+        <p> Actors: <span> {{movieIdActor}}</span></p>
+        <p> Released: <span> {{movieIdReleased}}</span></p>
+        <p> Country: <span> {{movieIdCountry}}</span></p>
+        <p> Genre: <span> {{movieIdGenre}}</span></p>
+        <p> <img src="{{movieIdPoster}}" alt=""> </p>
+
+    </div>
+    }
+    <p> Title: <span>{{m?.Title}}</span></p>
+    <p> Year: <span>{{m?.Year}}</span></p>
+    <p> Type: <span>{{m?.Type}}</span></p>
+
+</fieldset>
+}
+</div>
+}
+
+@else {<span>...loading</span>}
